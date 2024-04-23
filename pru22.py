@@ -15,7 +15,7 @@ campus = cargar_campus()
 
 def menu_ver_disp():
     while True:
-        os.system("cls")
+        os.system("clear")
         print("Seleccione el campus")
         for idx, item in enumerate(campus, 1):
             print(f"{idx}. {item}")
@@ -30,7 +30,7 @@ def menu_ver_disp():
             elif 1 <= selector <= len(campus):
                 archivo = campus[selector - 1] + ".txt"
                 try:
-                    os.system("cls")
+                    os.system("clear")
                     with open(archivo, "r") as arch:
                         for line in arch:
                             print(line.strip())
@@ -46,7 +46,7 @@ def menu_ver_disp():
 
 def menu_add_disp():
     while True:
-        os.system("cls")
+        os.system("clear")
         print("¿Dónde agregar nuevo dispositivo?\n")
         for idx, item in enumerate(campus, 1):
             print(f"{idx}. {item}")
@@ -59,7 +59,7 @@ def menu_add_disp():
                 print("Volviendo al Menú Principal.")
                 break
             elif 1 <= selector <= len(campus):
-                os.system("cls")
+                os.system("clear")
                 file_path = campus[selector - 1] + ".txt"
                 
                 with open(file_path, "a") as file:
@@ -103,7 +103,7 @@ def menu_add_disp():
             input("Presiona Enter para continuar.")
 def menu_del_disp():
     while True:
-        os.system("cls")
+        os.system("clear")
         print("Seleccione el campus para borrar dispositivo")
         for idx, item in enumerate(campus, 1):
             print(f"{idx}. {item}")
@@ -117,7 +117,7 @@ def menu_del_disp():
                 break
             elif 1 <= selector <= len(campus):
                 archivo = campus[selector - 1] + ".txt"
-                os.system("cls")
+                os.system("clear")
                 with open(archivo, "r") as arch:
                     lineas = arch.readlines()
 
@@ -183,7 +183,7 @@ def menu_del_disp():
                 input("Presiona Enter para continuar.")
 
 def menu_add_campus():
-    os.system("cls")
+    os.system("clear")
     print("Campus existentes:")
     for idx, item in enumerate(campus, 1):
             print(f"{idx}. {item}")
@@ -202,7 +202,7 @@ def menu_add_campus():
         print(f"{new_campus}: Creado correctamente.")
         input("Presiona Enter para continuar.")
 def menu_del_campus():
-    os.system("cls")
+    os.system("claer")
     print("Seleccione el campus para borrar")
     for idx, item in enumerate(campus, 1):
         print(f"{idx}. {item}")
@@ -232,9 +232,9 @@ def menu_del_campus():
             print("Opción no válida. Inténtalo de nuevo.")
     else:
         print("Opción no válida. Inténtalo de nuevo.")
-def main():
+def menu_principal():
     while True:
-        os.system("cls")
+        os.system("clear")
         print("BIENVENIDO ADMINISTRADOR DE RED.\n¿Qué desea hacer?")
         print("1. Ver los dispositivos.")
         print("2. Ver los campus.")
@@ -249,7 +249,7 @@ def main():
         if selector == 1:
             menu_ver_disp()
         elif selector == 2:
-            os.system("cls")
+            os.system("clear")
             print("Lista de campus:")
             for idx, item in enumerate(campus, 1):
                 print(f"{idx}. {item}")
@@ -267,5 +267,3 @@ def main():
             break
         else:
             print("Opción no válida. Intente de nuevo.")
-if __name__ == "__main__":
-    main()
