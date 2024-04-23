@@ -130,15 +130,19 @@ def menu_del_disp():
                 while True:
                     # pedir cantidad de lineas a borrar
                     while True:
-                        cant_borrar = input("\nIngrese la cantidad de líneas a borrar (o 'q' para salir): ")
-                        if cant_borrar.lower() == "q":
-                            print("Saliendo del proceso de borrado...")
-                            return
-                        elif cant_borrar.isdigit() and int(cant_borrar) > 0 and int(cant_borrar) <= len(lineas):
-                            cant_borrar = int(cant_borrar)
-                            break
-                        else:
-                            print("Cantidad inválida. Debe ser un número entre 1 y", len(lineas))
+                        try:
+                            cant_borrar = input("\nIngrese la cantidad de líneas a borrar (o 'q' para salir): ")
+                            if cant_borrar.lower() == "q":
+                                print("Saliendo del proceso de borrado...")
+                                return
+                            elif cant_borrar.isdigit() and int(cant_borrar) > 0 and int(cant_borrar) <= len(lineas):
+                                cant_borrar = int(cant_borrar)
+                                break
+                            else:
+                                print("Cantidad inválida. Debe ser un número entre 1 y", len(lineas))
+                        except ValueError:
+                            print("Entrada no válida. Intentelo de nuevo")
+                            input("Presiona Enter para continuar.")
                     lineas_borrar = []
                     for _ in range(cant_borrar):
                         while True:
@@ -202,7 +206,7 @@ def menu_add_campus():
         print(f"{new_campus}: Creado correctamente.")
         input("Presiona Enter para continuar.")
 def menu_del_campus():
-    os.system("claer")
+    os.system("clear")
     print("Seleccione el campus para borrar")
     for idx, item in enumerate(campus, 1):
         print(f"{idx}. {item}")
