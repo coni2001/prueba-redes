@@ -222,6 +222,7 @@ def menu_del_campus():
             try:
                 os.remove(archivo_borrar)
                 campus.remove(campus_borrar)
+                guardar_campus()
                 print(f"Campus '{campus_borrar}' y su archivo '{archivo_borrar}' eliminados correctamente.")
                 input("Presiona Enter para continuar...")
             except OSError as e:
@@ -232,7 +233,7 @@ def menu_del_campus():
             print("Opción no válida. Inténtalo de nuevo.")
     else:
         print("Opción no válida. Inténtalo de nuevo.")
-def menu_principal():
+def menu_prin():
     while True:
         os.system("clear")
         print("BIENVENIDO ADMINISTRADOR DE RED.\n¿Qué desea hacer?")
@@ -267,3 +268,5 @@ def menu_principal():
             break
         else:
             print("Opción no válida. Intente de nuevo.")
+if __name__ == "__main__":
+    menu_prin()
