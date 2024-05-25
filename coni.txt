@@ -1,9 +1,0 @@
-DISPOSITIVOS DE coni
----------------------------------
-Tipo de dispositivo: Router
-Nombre de dispositivo: R1
-Direccionamiento IP: fe:192.168.100.1/24
-VLAN(s) configuradas: NA
-Servicios de red: dhcp vpn ospf
-Capa a la que pertenece, (modelo jerárquico): Acceso
----------------------------------

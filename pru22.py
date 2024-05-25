@@ -206,37 +206,42 @@ def menu_add_campus():
         print(f"{new_campus}: Creado correctamente.")
         input("Presiona Enter para continuar.")
 def menu_del_campus():
-    os.system("clear")
-    print("Seleccione el campus para borrar")
-    for idx, item in enumerate(campus, 1):
-        print(f"{idx}. {item}")
-    print(f"{len(campus) + 1}. Volver al Menú Principal")
+    while True:
+        os.system("clear")
+        print("Seleccione el campus para borrar")
+        for idx, item in enumerate(campus, 1):
+            print(f"{idx}. {item}")
+        print(f"{len(campus) + 1}. Volver al Menú Principal")
+        try:
+            selector = int(input("\nSelecciona una opción: "))
 
-    selector = int(input("\nSelecciona una opción: "))
-
-    if selector == len(campus) + 1:
-        print("Volviendo al Menú Principal...")
-        return
-    elif 1 <= selector <= len(campus):
-        campus_borrar = campus[selector - 1]
-        archivo_borrar = campus_borrar + ".txt"
-
-        confirmar = input(f"¿Está seguro que desea borrar el campus '{campus_borrar}' y su archivo '{archivo_borrar}'? (s/n): ")
-        if confirmar.lower() == "s":
-            try:
-                os.remove(archivo_borrar)
-                campus.remove(campus_borrar)
-                guardar_campus()
-                print(f"Campus '{campus_borrar}' y su archivo '{archivo_borrar}' eliminados correctamente.")
-                input("Presiona Enter para continuar...")
-            except OSError as e:
-                print(f"Error al eliminar el archivo o campus: {e}")
-        elif confirmar.lower() == "n":
-            print("Operación cancelada.")
-        else:
-            print("Opción no válida. Inténtalo de nuevo.")
-    else:
-        print("Opción no válida. Inténtalo de nuevo.")
+            if selector == len(campus) + 1:
+                print("Volviendo al Menú Principal...")
+                return
+            elif 1 <= selector <= len(campus):
+                campus_borrar = campus[selector - 1]
+                archivo_borrar = campus_borrar + ".txt"
+                
+                confirmar = input(f"¿Está seguro que desea borrar el campus '{campus_borrar}' y su archivo '{archivo_borrar}'? (s/n): ")
+                if confirmar.lower() == "s":
+                    
+                    os.remove(archivo_borrar)
+                    campus.remove(campus_borrar)
+                    guardar_campus()
+                    print(f"Campus '{campus_borrar}' y su archivo '{archivo_borrar}' eliminados correctamente.")
+                    input("Presiona Enter para continuar...")
+                    
+                elif confirmar.lower() == "n":
+                    print("Operación cancelada.")
+                else:
+                    print("Opción no válida. Inténtalo de nuevo.")
+                    input("Presione Enter para continuar")
+            else:
+                print("Opcion no valida. Vuelva a intentar.")
+                input("Presione Enter para continuar")
+        except ValueError:
+                print("Entrada no válida. Debe ingresar un número.")
+                input("Presiona Enter para continuar.")
 def menu_prin():
     while True:
         os.system("clear")
@@ -248,29 +253,33 @@ def menu_prin():
         print("5. Borrar dispositivo.")
         print("6. Borrar campus.")
         print("7. Salir")
+        try:
+            selector = int(input("Elija una opción: "))
 
-        selector = int(input("Elija una opción: "))
-
-        if selector == 1:
-            menu_ver_disp()
-        elif selector == 2:
-            os.system("clear")
-            print("Lista de campus:")
-            for idx, item in enumerate(campus, 1):
-                print(f"{idx}. {item}")
-            input("\nPulsa Enter para continuar...")
-        elif selector == 3:
-            menu_add_disp()
-        elif selector == 4:
-            menu_add_campus()
-        elif selector == 5:
-            menu_del_disp()  # Llamando a la función para borrar dispositivo
-        elif selector == 6:
-            menu_del_campus()
-        elif selector == 7:
-            print("Saliendo del programa...")
-            break
-        else:
-            print("Opción no válida. Intente de nuevo.")
+            if selector == 1:
+                menu_ver_disp()
+            elif selector == 2:
+                os.system("clear")
+                print("Lista de campus:")
+                for idx, item in enumerate(campus, 1):
+                    print(f"{idx}. {item}")
+                input("\nPulsa Enter para continuar...")
+            elif selector == 3:
+                menu_add_disp()
+            elif selector == 4:
+                menu_add_campus()
+            elif selector == 5:
+                menu_del_disp()  # Llamando a la función para borrar dispositivo
+            elif selector == 6:
+                menu_del_campus()
+            elif selector == 7:
+                print("Saliendo del programa...")
+                break
+            else:
+                print("Opción no válida. Intente de nuevo.")
+                input("Presiona Enter para continuar.")
+        except ValueError:
+            print("Entrada inválida. Debe ingresar un número.")
+            input("Presiona Enter para continuar.")
 if __name__ == "__main__":
     menu_prin()
