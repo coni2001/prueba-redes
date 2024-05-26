@@ -1,1 +1,10 @@
 DISPOSITIVOS DE Campus Uno
+---------------------------------
+Tipo de dispositivo: android
+Nombre de dispositivo: qwerty
+Direccionamiento IP:
+  - eth0:192.168.0.0/24
+VLAN(s) configuradas: na
+Servicios de red: na
+Capa a la que pertenece, (modelo jerárquico): Acceso
+---------------------------------

@@ -184,6 +184,7 @@ def menu_del_disp():
                                 print("Número de línea inválido. Intente de nuevo.")
 
                     # Mostrar las líneas seleccionadas para borrar
+                    os.system("clear")
                     print("\nLíneas seleccionadas para borrar:")
                     for num_linea in lineas_borrar:
                         print(f"{num_linea + 1}. {lineas[num_linea].strip()}")
